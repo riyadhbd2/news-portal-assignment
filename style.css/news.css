@@ -1,3 +1,27 @@
 #name{
     font-size: xx-small;
 }
+
+#author{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-content: center;
+}
+
+.flex{
+    display: flex;
+    
+}
+#author-name{
+    font-size: 15px;
+}
+
+#author-image{
+    height: 50px;
+    width: 50px;
+}
+.child{
+    justify-content: center;
+    align-content: center;
+}

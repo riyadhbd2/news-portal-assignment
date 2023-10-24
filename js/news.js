@@ -42,17 +42,29 @@ const displayAllCategories = categories =>{
     const allCatagories = document.getElementById('catagory-container');
     allCatagories.innerHTML = ``;
     categories.forEach(category => {
-        // console.log(category);
+        console.log(category);
         const newCatagoryDiv = document.createElement('div');
         newCatagoryDiv.classList.add('col');
         newCatagoryDiv.innerHTML = `
-        <div onclick="newsDetails('${category._id}')"data-bs-toggle="modal" class="card h-100">
+        <div onclick="newsDetails('${category._id}') class="card h-100 border border-warning">
             <img src="${category.image_url}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${category.title}</h5>
                 <p class="card-text">${category.details.slice(0, 150)+ '...'}</p>
             </div>
-            <h1>${category._id}</h1>
+            <div id="author" class="mt-4">
+                <div class="child flex mt-3">
+                    <img id="author-image" class= "rounded-5" src ="${category.author.img}"> 
+                    <p id ="author-name" class="ms-1">${category.author.name}</p>
+                </div>
+                <div class="child flex mt-4">
+                    <i class="fa-solid fa-eye mt-1"></i>
+                    <p class="ms-1">${category.total_view}</p>
+                </div>
+                <div class="child mt-4">
+                    <button>Details News</button>
+                </div>
+            </div>
         </div>
         `
         allCatagories.appendChild(newCatagoryDiv);
@@ -85,10 +97,11 @@ const startSpinner = isLoading =>{
     }
 }
 
+// Categories Count 
 const showNumber = numbers =>{
     const number = document.getElementById('numbers');
     number.innerText = `
-    ${numbers} news are available for this catagory`
+    ${numbers} news are available in this category`
 }
 
 
