@@ -115,4 +115,21 @@ const showNumber = numbers =>{
     ${numbers} news are available in this category`
 }
 
+document.getElementById('btn-blog').addEventListener('click', function(){
+    const blogDetails = document.getElementById('blog-details');
+    const newBlogDiv = document.createElement('div');
+    newBlogDiv.innerHTML = `
+        <h3>Todays All Blogs</h3>
+        <h6>What is the differences between var, let and const?</h6>
+        <p>Var declarations are globally scoped or function scoped while let and const are block scoped. var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared. They are all hoisted to the top of their scope.</p>
+        <h6>What is the differences between arrow function and regular function?</h6>
+        <p>Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible, i.e arrow functions can never be used as constructor functions.</p>
+        <h6>What is the differences between map, foreach, filter nd find?</h6>
+        <p>Map() will return a new array as per the conditions applied. forEach() will not return anything. forEach() returns undefined. filter() method will return an array of matching elements else will return an empty array if no matching happens.</p>
+        <h6>Why templete string is used?</h6>
+        <p>One of the powerful features introduced in TypeScript 4.1 is template literal types which provide greater flexibility and control over string literal types. In TypeScript, a string literal type is a type that represents a specific set of string values.</p>
+        `
+    blogDetails.appendChild(newBlogDiv);
+})
+
 allNewsLoad();
