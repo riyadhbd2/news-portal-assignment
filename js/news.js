@@ -42,6 +42,7 @@ const displayAllCategories = categories =>{
     const allCatagories = document.getElementById('catagory-container');
     allCatagories.innerHTML = ``;
     categories.forEach(category => {
+        console.log(category);
         const newCatagoryDiv = document.createElement('div');
         newCatagoryDiv.classList.add('col');
         newCatagoryDiv.innerHTML = `
@@ -53,7 +54,7 @@ const displayAllCategories = categories =>{
             </div>
             <div id="author" class="mt-4">
                 <div class="child flex mt-3">
-                    <img id="author-image" class= "rounded-5" src ="${category.author.img}"> 
+                    <img src ="${category.author.img}" id="author-image" class= "rounded-5" alt="..."> 
                     <div class="author-name">
                         <p class="ms-1">${category.author.name ? category.author.name : 'No name found'}</p>
                         <p>${category.author.published_date}</p>
@@ -61,7 +62,7 @@ const displayAllCategories = categories =>{
                 </div>
                 <div class="child flex mt-4">
                     <i class="fa-solid fa-eye mt-1"></i>
-                    <p class="ms-1">${category.total_view}</p>
+                    <p class="ms-1">${category.total_view ? category.total_view : 'No view yet'}</p>
                 </div>
                 <div class="child mt-4">
                     <button onclick="newsDetails('${category._id}')" data-bs-toggle="modal" data-bs-target="#newsDetailsModal">Details News</button>
