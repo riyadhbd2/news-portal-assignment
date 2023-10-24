@@ -16,7 +16,7 @@ const displayAllNewsCategory = allNews =>{
             const newsDiv = document.createElement('div');
             newsDiv.classList.add('col')
             newsDiv.innerHTML =`
-            <div onclick="loadAllCategory('${category.category_id ? category.category_id : "There is now news right now" }')">${category.category_name}</div>
+            <div onclick="loadAllCategory('${category.category_id}')">${category.category_name}</div>
             `
             displayNews.appendChild(newsDiv);
         });
@@ -25,7 +25,7 @@ const displayAllNewsCategory = allNews =>{
 // Load All Catagories 
 
 const loadAllCategory =(id) =>{
-
+    startSpinner(true);
     // console.log(id);
     fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then(res => res.json())
@@ -44,7 +44,7 @@ const displayAllCategories = categories =>{
         const newCatagoryDiv = document.createElement('div');
         newCatagoryDiv.classList.add('col');
         newCatagoryDiv.innerHTML = `
-        <div onclick="newsDetails('${category._id}')" class="card h-100">
+        <div onclick="newsDetails('${category._id}')"data-bs-toggle="modal" class="card h-100">
             <img src="${category.image_url}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${category.title}</h5>
@@ -56,6 +56,7 @@ const displayAllCategories = categories =>{
         allCatagories.appendChild(newCatagoryDiv);
         
     });
+    startSpinner(false);
 
 }
 
@@ -64,10 +65,22 @@ const displayAllCategories = categories =>{
 const newsDetails = (newsId) =>{
     fetch(`https://openapi.programming-hero.com/api/news/${newsId}`)
     .then(res => res.json())
-    .then(data => console.log(data.data[0]))
+    .then(data => displayNewsDetails(data.data[0]))
     .catch(error => console.log(error))
 }
 
+const displayNewsDetails =()=>{
+     
+}
+
+const startSpinner = isLoading =>{
+    const spinnerSection = document.getElementById('spinner');
+    if (isLoading) {
+        spinnerSection.classList.remove('d-none')
+    } else {
+        spinnerSection.classList.add('d-none')
+    }
+}
 
 
 allNewsLoad();
