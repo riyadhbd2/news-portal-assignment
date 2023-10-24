@@ -27,7 +27,7 @@
                     </ul>
                     <form class="d-flex" role="search">
                       <button class="btn" type="submit">News</button>
-                      <button class="btn" type="submit">Blogs</button>
+                      <button id="btn-blog"class="btn" type="submit" data-bs-toggle="modal" data-bs-target="#blogDetailsModal">Blogs</button>
                     </form>
                   </div>
                 </div>
@@ -68,13 +68,7 @@
             
         </section>
 
-        <!-- Maim Modal  -->
-        <section>
-            <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newsDetailsModal">
-            Launch demo modal
-        </button> -->
-        
+        <section> 
         <!-- Modal -->
         <div class="modal fade" id="newsDetailsModal" tabindex="-1" aria-labelledby="newsDetailsModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -92,7 +86,42 @@
             </div>
             </div>
         </div>
-        </section>  
+        </section>
+        
+        <!-- Blog Section  -->
+        <section>
+            <div class="modal fade" id="blogDetailsModal" tabindex="-1" aria-labelledby="blogDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="blogDetailsModalLabel">Blog Details</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div id="blog-details" class="modal-body">
+                        <div>
+                            <h6>What is the differences between var, let and const?</h6>
+                            <p>Var declarations are globally scoped or function scoped while let and const are block scoped. var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared. They are all hoisted to the top of their scope.</p>
+                        </div>
+                        <div>
+                            <h6>What is the differences between arrow function and regular function?</h6>
+                            <p>Regular functions created using function declarations or expressions are constructible and callable. Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible, i.e arrow functions can never be used as constructor functions.</p>
+                        </div>
+                        <div>
+                            <h6>What is the differences between map, foreach, filter nd find?</h6>
+                            <p>Map() will return a new array as per the conditions applied. forEach() will not return anything. forEach() returns undefined. filter() method will return an array of matching elements else will return an empty array if no matching happens.</p>
+                        </div>
+                        <div>
+                            <h6>Why templete string is used?</h6>
+                            <p>One of the powerful features introduced in TypeScript 4.1 is template literal types which provide greater flexibility and control over string literal types. In TypeScript, a string literal type is a type that represents a specific set of string values.</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                </div>
+            </div> 
+        </section>
     </main>
 
     <footer>

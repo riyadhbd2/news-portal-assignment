@@ -117,5 +117,4 @@ const showNumber = numbers =>{
 
 
 
-
 allNewsLoad();
