@@ -13,8 +13,8 @@
     display: flex;
     
 }
-#author-name{
-    font-size: 15px;
+.author-name{
+    font-size: 12px;
 }
 
 #author-image{

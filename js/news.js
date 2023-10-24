@@ -11,12 +11,12 @@ const allNewsLoad = () =>{
 // Display All Data 
 const displayAllNewsCategory = allNews =>{
     const displayNews = document.getElementById('display-news');
-        allNews.forEach(category => {
+        allNews.forEach(catagory => {
             // console.log(category);
             const newsDiv = document.createElement('div');
             newsDiv.classList.add('col')
             newsDiv.innerHTML =`
-            <div onclick="loadAllCategory('${category.category_id}')">${category.category_name}</div>
+            <div onclick="loadAllCategory('${catagory.category_id}')">${catagory.category_name}</div>
             `
             displayNews.appendChild(newsDiv);
         });
@@ -42,7 +42,7 @@ const displayAllCategories = categories =>{
     const allCatagories = document.getElementById('catagory-container');
     allCatagories.innerHTML = ``;
     categories.forEach(category => {
-        console.log(category);
+        // console.log(category);
         const newCatagoryDiv = document.createElement('div');
         newCatagoryDiv.classList.add('col');
         newCatagoryDiv.innerHTML = `
@@ -55,14 +55,17 @@ const displayAllCategories = categories =>{
             <div id="author" class="mt-4">
                 <div class="child flex mt-3">
                     <img id="author-image" class= "rounded-5" src ="${category.author.img}"> 
-                    <p id ="author-name" class="ms-1">${category.author.name}</p>
+                    <div class="author-name">
+                        <p class="ms-1">${category.author.name}</p>
+                        <p>${category.author.published_date}</p>
+                    </div>
                 </div>
                 <div class="child flex mt-4">
                     <i class="fa-solid fa-eye mt-1"></i>
                     <p class="ms-1">${category.total_view}</p>
                 </div>
                 <div class="child mt-4">
-                    <button>Details News</button>
+                    <button onclick="newsDetails('${category._id}')" data-bs-toggle="modal" data-bs-target="#newsDetailsModal">Details News</button>
                 </div>
             </div>
         </div>
@@ -83,9 +86,17 @@ const newsDetails = (newsId) =>{
     .catch(error => console.log(error))
 }
 
-const displayNewsDetails =()=>{
-     
+// Display news details 
+
+const displayNewsDetails = (details)=>{
+    console.log(details);
+    const modalTitle = document.getElementById('newsDetailsModalLabel');
+    modalTitle.innerText =`'${details.title}'`
+    const modalDetails = document.getElementById('news-details');
+    modalDetails.innerText = `'${details.details}'`
+    
 }
+
 
 // Spinner function
 const startSpinner = isLoading =>{
@@ -103,6 +114,8 @@ const showNumber = numbers =>{
     number.innerText = `
     ${numbers} news are available in this category`
 }
+
+
 
 
 allNewsLoad();
