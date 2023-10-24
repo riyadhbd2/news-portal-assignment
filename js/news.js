@@ -115,6 +115,7 @@ const showNumber = numbers =>{
     ${numbers} news are available in this category`
 }
 
+// Blog details 
 document.getElementById('btn-blog').addEventListener('click', function(){
     const blogDetails = document.getElementById('blog-details');
     const newBlogDiv = document.createElement('div');
