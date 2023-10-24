@@ -42,7 +42,6 @@ const displayAllCategories = categories =>{
     const allCatagories = document.getElementById('catagory-container');
     allCatagories.innerHTML = ``;
     categories.forEach(category => {
-        // console.log(category);
         const newCatagoryDiv = document.createElement('div');
         newCatagoryDiv.classList.add('col');
         newCatagoryDiv.innerHTML = `
@@ -56,7 +55,7 @@ const displayAllCategories = categories =>{
                 <div class="child flex mt-3">
                     <img id="author-image" class= "rounded-5" src ="${category.author.img}"> 
                     <div class="author-name">
-                        <p class="ms-1">${category.author.name}</p>
+                        <p class="ms-1">${category.author.name ? category.author.name : 'No name found'}</p>
                         <p>${category.author.published_date}</p>
                     </div>
                 </div>
@@ -114,7 +113,5 @@ const showNumber = numbers =>{
     number.innerText = `
     ${numbers} news are available in this category`
 }
-
-
 
 allNewsLoad();
