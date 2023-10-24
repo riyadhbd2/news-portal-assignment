@@ -37,6 +37,8 @@ const loadAllCategory =(id) =>{
 // Display All Catagories 
 
 const displayAllCategories = categories =>{
+    const num = categories.length;
+    showNumber(num);
     const allCatagories = document.getElementById('catagory-container');
     allCatagories.innerHTML = ``;
     categories.forEach(category => {
@@ -73,6 +75,7 @@ const displayNewsDetails =()=>{
      
 }
 
+// Spinner function
 const startSpinner = isLoading =>{
     const spinnerSection = document.getElementById('spinner');
     if (isLoading) {
@@ -80,6 +83,12 @@ const startSpinner = isLoading =>{
     } else {
         spinnerSection.classList.add('d-none')
     }
+}
+
+const showNumber = numbers =>{
+    const number = document.getElementById('numbers');
+    number.innerText = `
+    ${numbers} news are available for this catagory`
 }
 
 
